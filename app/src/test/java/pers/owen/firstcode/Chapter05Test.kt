@@ -14,7 +14,30 @@ class Chapter05Test {
         InnerTest().test1()
     }
 
+    @Test
+    fun test2() {
+        // 扩展函数
+        println("asdfisdjfo".lettersCount())
+    }
 
+    @Test
+    fun test3() {
+        // 运算符重载，Kotlin允许我们重载的关键字多达十几个
+        var money1 = Money(5)
+        var money2 = Money(10)
+        var money3 = money1 + money2
+        println(money3.value)
+
+        var money4 = money3 + 20
+        println(money4.value)
+    }
+
+    @Test
+    fun test4() {
+        val str = "abc" * 4
+        println(str)
+        println(str * (1..20).random())
+    }
 
     inner class InnerTest {
 
