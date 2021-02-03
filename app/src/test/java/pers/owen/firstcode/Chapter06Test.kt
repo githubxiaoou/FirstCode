@@ -70,7 +70,49 @@ class Chapter06Test {
 
     @Test
     fun test3() {
-        // noinline和crossinline
+        // noinline
+        println("main begin")
+        val str = "d"
+        printString(str) {
+            s ->
+            println("Lambda begin")
+            if (s.isEmpty()) return
+            println(s)
+            println("Lambda begin")
+        }
+        println("main end")
+    }
 
+    // inline是默认内联所有lambda表达式，加了noinline标识来排序内联
+    /**
+     * Lambda表达式不能直接用return关键字，除非这个Lambda表达式是内联函数的参数。
+     * inline会导致函数类型的参数无法被当做对象被使用，这个时候就有了noinline。
+     * 内联函数类型的参数不允许间接调用，除非有crossinline的修饰，但是如果加了这个修饰，则也就承诺了Lambda表达式中不会有return。
+     */
+    inline fun inlineTest(block1: () -> Unit, noinline block2: () -> Unit) {
+
+    }
+
+    private inline fun printString(str: String, block: (String) -> Unit) {
+        println("printString begin")
+        block(str)
+        println("printString end")
+    }
+
+    @Test
+    fun test04() {
+        //crossinline
+        hello {
+            println("Bye")
+//            return
+        }
+    }
+
+    private inline fun hello(crossinline postAction: () -> Unit) {
+        println("Hello!")
+        val runnable = Runnable{
+            postAction()
+        }
+        runnable.run()
     }
 }
