@@ -64,10 +64,7 @@ class C02Test {
         doStudy(student)
     }
 
-    private fun doStudy(study: Study) {
-        study.readBooks()
-        study.doHomework()
-    }
+
 
     @Test
     fun test5() {
@@ -128,5 +125,131 @@ class C02Test {
         for ((fruit, number) in map) {
             println("fruit is $fruit, number is $number")
         }
+    }
+
+    @Test
+    fun test10() {
+        val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape", "Watermelon")
+//        var maxLengthFruit = ""
+//        for (fruit in list) {
+//            if (fruit.length > maxLengthFruit.length) {
+//                maxLengthFruit = fruit
+//            }
+//        }
+
+        // list.maxBy()相当于遍历这个集合，传入的lambda便是过滤的条件
+//        val lambda = {fruit: String -> fruit.length}
+//        var maxLengthFruit = list.maxBy(lambda)
+
+        // 简化开始
+        // 1、将表达式传入maxBy函数当中
+//        var maxLengthFruit = list.maxBy({ fruit: String -> fruit.length })
+
+        // 2、Kotlin规定，当Lambda参数是函数的最后一个参数时，可以将Lambda表达式移到函数括号的外面
+//        var maxLengthFruit = list.maxBy(){ fruit: String -> fruit.length }
+
+        // 3、如果Lambda参数是函数的唯一一个参数的话，可以将函数的括号省略
+//        var maxLengthFruit = list.maxBy{ fruit: String -> fruit.length }
+
+        // 4、类型推导
+//        var maxLengthFruit = list.maxBy{ fruit -> fruit.length }
+
+        // 5、Lambda表达式的参数列表中只有一个参数时，不必声明参数名，而是使用it关键字代替
+        var maxLengthFruit = list.maxBy { it.length }
+
+//        var maxLengthFruit = list.maxBy { it.length }
+
+        println("max length fruit is $maxLengthFruit")
+    }
+
+    @Test
+    fun test11() {
+        val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape", "Watermelon")
+        val newList = list.filter { it.length <= 5 }
+            .map { it.toUpperCase() }
+        for (fruit in newList) {
+            println(fruit)
+        }
+    }
+
+    @Test
+    fun test12() {
+        val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape", "Watermelon")
+        val anyResult = list.any { it.length <=5 }
+        val allResult = list.all { it.length <=5 }
+        println("anyResult is $anyResult, allResult is $allResult")
+    }
+
+    @Test
+    fun test13() {
+        Thread {
+            println("Thread is running")
+        }.start()
+    }
+
+
+    @Test
+    fun test14() {
+        doStudy(null)
+    }
+
+
+    private fun doStudy(study: Study?) {
+        study?.readBooks()
+        study?.doHomework()
+
+//        if (study != null) {
+//            study.readBooks()
+//        }
+//
+//        if (study != null) {
+//            study.doHomework()
+//        }
+//        study?.let {
+//            it.readBooks()
+//            it.doHomework()
+//        }
+    }
+
+
+    /*当study为成员变量时的示例*/
+    var study:Study? = null
+    private fun doStudy() {
+        if (study != null) {
+//            study.readBooks()
+//            study.doHomework()
+        }
+    }
+
+
+
+    @Test
+    fun test15() {
+//        val c = if (a != null) {
+//            a
+//        } else {
+//            b
+//        }
+//
+//        val c = a ?: b
+
+        val upperCase = "content!!.".toUpperCase()
+        println(upperCase)
+    }
+
+    @Test
+    fun test16() {
+        val age = 18
+        val stu = Student("Jack", age)
+        println("The boy is named ${stu.name}, he is $age year old")
+    }
+
+    private fun printParams(num: Int, str: String = "hello", string: String = "csdn") {
+        println("num is $num, str is $str, string is $string")
+    }
+
+    @Test
+    fun test17() {
+        printParams(string = "world", str = "lively", num = 3)
     }
 }
