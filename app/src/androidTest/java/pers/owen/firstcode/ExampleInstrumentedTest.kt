@@ -28,6 +28,11 @@ open class ExampleInstrumentedTest {
         val appContext = context
         assertEquals("pers.owen.firstcode", context.packageName)
 
+//        val intent = Intent(appContext, MainActivity::class.java)
+//        intent.putExtra("param1", "data1")
+//        intent.putExtra("param2", "data2")
+
+
         // 举例1:标准函数的使用举例
         val intent = Intent(appContext, MainActivity::class.java).apply {
             putExtra("param1", "data1")

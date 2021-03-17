@@ -11,14 +11,14 @@ class Chapter03Test {
     @Test
     fun test(): Unit {
         val list = listOf("Apple", "Banana", "Orange", "Pear", "Grape", "Watermelon")
-        // 普通写法
-//        var builder = StringBuilder()
+//        // 普通写法
+//        val builder = StringBuilder()
 //        builder.append("Start eating fruits.\n")
 //        for (fruit in list) {
 //            builder.append(fruit).append("\n")
 //        }
 //        builder.append("Ate all fruits.")
-//        var result = builder.toString()
+//        val result = builder.toString()
 //        println(result)
 
         // with和run函数返回的都是lambda表达式的最后一行代码的返回值
@@ -50,7 +50,7 @@ class Chapter03Test {
             }
             append("Ate all fruits.")
         }
-        println(result)
+        println(result.toString())
 
         // 实际使用场景见举例1
 
