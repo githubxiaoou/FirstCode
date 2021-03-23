@@ -60,7 +60,7 @@ class Chapter05Test {
         private fun getRandomLengthString(string: String): String {
             val n = (1..20).random()
             val builder = StringBuilder()
-            repeat(two) {
+            repeat(n) {
                 builder.append(string)
             }
             return builder.toString()
