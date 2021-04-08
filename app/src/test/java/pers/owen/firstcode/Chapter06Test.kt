@@ -5,19 +5,24 @@ import java.lang.StringBuilder
 
 class Chapter06Test {
 
+    fun example(func: (String, Int) -> Unit) {
+        func("hello", 123)
+    }
+
+
     @Test
     fun test() {
         // 高阶函数
-        val num1 = 100
-        val num2 = 80
-        val result1 = num1AndNum2(num1, num2, ::plus)
-        val result2 = num1AndNum2(num1, num2, ::minus)
-        println("result1 is $result1")
-        println("result2 is $result2")
-        val result3 = num1AndNum2(num1, num2){num1, num2 -> num1 + num2}
-        val result4 = num1AndNum2(num1, num2){num1, num2 -> num1 - num2}
-        println("result3 is $result3")
-        println("result4 is $result4")
+//        val num1 = 100
+//        val num2 = 80
+//        val result1 = num1AndNum2(num1, num2, ::plus)
+//        val result2 = num1AndNum2(num1, num2, ::minus)
+//        println("result1 is $result1")
+//        println("result2 is $result2")
+//        val result3 = num1AndNum2(num1, num2){num1, num2 -> num1 + num2}
+//        val result4 = num1AndNum2(num1, num2){num1, num2 -> num1 - num2}
+//        println("result3 is $result3")
+//        println("result4 is $result4")
 
         // 完整语法规则，在函数类型前面加上ClassName.就表示这个函数类型是定义在哪个类当中
         // 好处就是这样就自动拥有了该类的上下文
