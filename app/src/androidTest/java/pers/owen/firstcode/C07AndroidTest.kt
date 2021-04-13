@@ -45,6 +45,14 @@ class C07AndroidTest : ExampleInstrumentedTest() {
 
     @Test
     fun test2() {
+        // 老式写法
+        val edit = context.getSharedPreferences("data", Context.MODE_PRIVATE).edit()
+        edit.putString("name", "Tom")
+        edit.putInt("age", 28)
+        edit.putBoolean("married", false)
+        edit.apply()
+
+        // 封装后的写法
         context.getSharedPreferences("data", Context.MODE_PRIVATE).open {
             putString("name", "Tom")
             putInt("age", 28)
@@ -63,7 +71,7 @@ class C07AndroidTest : ExampleInstrumentedTest() {
 
 
     fun test3(db: SQLiteDatabase) {
-        // 老版本写法
+        // 老式写法
 //        var values = ContentValues()
 //        values.put("name", "Game of Thrones")
 //        values.put("author", "George Martin")
