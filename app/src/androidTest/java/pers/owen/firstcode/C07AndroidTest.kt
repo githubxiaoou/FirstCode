@@ -1,6 +1,5 @@
 package pers.owen.firstcode
 
-import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import androidx.core.content.edit
