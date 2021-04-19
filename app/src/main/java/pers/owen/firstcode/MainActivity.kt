@@ -27,4 +27,5 @@ class MainActivity : AppCompatActivity() {
 
         Toast.makeText(this, msg.content, Toast.LENGTH_SHORT).show()
     }
+
 }
