@@ -73,7 +73,12 @@ class C11Test {
         println(end - start)
     }
 
-    suspend fun println2() = coroutineScope {
+    suspend fun printDot() {
+        println(".")
+        delay(1000)
+    }
+
+    suspend fun printDot2() = coroutineScope {
         launch {
             println(".")
             delay(1000)

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         msg = Msg("lala", 1)
 
         val btn = findViewById<Button>(R.id.btn)
-        testC10(btn)
+        testC12(btn)
     }
 
     fun onClick(view: View) {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, msg.content, Toast.LENGTH_SHORT).show()
     }
 
-    fun testC10(view: View) {
+    fun testC12(view: View) {
         view.showSnackbar("This is Snackbar", "Action") {
             // 此处处理逻辑
         }

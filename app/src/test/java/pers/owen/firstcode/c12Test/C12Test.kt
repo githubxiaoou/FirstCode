@@ -1,7 +1,6 @@
 package pers.owen.firstcode.c12Test
 
 import org.junit.Test
-import kotlin.math.max
 
 class C12Test {
     @Test
@@ -12,5 +11,11 @@ class C12Test {
         val larger = max(max(a, b), c)
     }
 
-
+    @Test
+    fun test2() {
+        val a = 3.5
+        val b = 3.8
+        val c = 4.1
+        val largest = max(a, b, c)
+    }
 }
